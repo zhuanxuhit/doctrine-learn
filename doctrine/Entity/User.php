@@ -1,5 +1,7 @@
 <?php namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class User {
 
     private $id;
@@ -7,10 +9,9 @@ class User {
     private $lastName;
     private $gender;
     private $namePrefix = '';
-//    private $posts = null;
-//    /** @var  PostRepository */
-//    private $postRepository;
-
+    private $posts;
+    //    /** @var  PostRepository */
+    //    private $postRepository;
     const GENDER_MALE                 = 0;
 
     const GENDER_FEMALE               = 1;
@@ -20,31 +21,13 @@ class User {
     const GENDER_FEMALE_DISPLAY_VALUE = "Mrs.";
 
     /**
-     * @param $postsRepository
+     * User constructor.
+     *
      */
-//    public function setPostRepository( $postsRepository )
-//    {
-//        $this->postRepository = $postsRepository;
-//    }
-
-    /**
-     * @return mixed
-     */
-//    public function getPostRepository()
-//    {
-//        return $this->postRepository;
-//    }
-
-    /**
-     * @return null
-     */
-//    public function getPosts()
-//    {
-//        if ( is_null( $this->posts ) ) {
-//            $this->posts = $this->postRepository->findByUser( $this );
-//        }
-//        return $this->posts;
-//    }
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
 
     /**
      * @return string
@@ -142,6 +125,18 @@ class User {
     public function getNamePrefix()
     {
         return $this->namePrefix;
+    }
+
+
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+
+    public function setPosts( $posts )
+    {
+        $this->posts = $posts;
     }
 }
 

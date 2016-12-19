@@ -18,3 +18,7 @@ App\Entity\User:
     namePrefix:
       type: string
       column: name_prefix
+  oneToMany:
+    posts:
+      targetEntity: App\Entity\Post
+      mappedBy: user

@@ -1,0 +1,20 @@
+App\Entity\Post:
+  type: entity
+  table: posts
+  id:
+      id:
+        type: integer
+        generator:
+          strategy: AUTO
+  fields:
+    title:
+      type: string
+    content:
+      type: string
+  manyToOne:
+    user:
+      targetEntity: App\Entity\User
+      inversedBy: posts
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
