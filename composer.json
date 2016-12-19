@@ -1,10 +1,12 @@
 {
     "require": {
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^5.7",
+        "doctrine/orm": "^2.5"
     },
     "autoload": {
         "psr-4": {
-            "":"src/"
+            "":"src/",
+            "App":"doctrine/"
         }
     }
 }
